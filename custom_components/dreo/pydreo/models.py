@@ -7,6 +7,10 @@ from .constant import (
     FAN_MODE_NORMAL,
     FAN_MODE_SLEEP,
     FAN_MODE_TURBO,
+
+    HEATER_MODE_HOTAIR,
+    HEATER_MODE_ECO,
+    HEATER_MODE_FAN,
 )
 
 @dataclass
@@ -57,7 +61,7 @@ SUPPORTED_FANS = {
         speed_range=(1, 9)
     ),
     "DR-HSH004S": DreoFanDetails(
-        preset_modes=[FAN_MODE_NORMAL, FAN_MODE_NATURAL, FAN_MODE_SLEEP, FAN_MODE_AUTO, FAN_MODE_TURBO],
+        preset_modes=[HEATER_MODE_HOTAIR, HEATER_MODE_ECO, HEATER_MODE_FAN],
         speed_range=(1, 3)
     ),
 }
