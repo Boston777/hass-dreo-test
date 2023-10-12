@@ -16,6 +16,9 @@ STATE_KEY = "state"
 POWERON_KEY = "poweron"
 WINDTYPE_KEY = "windtype"
 WINDLEVEL_KEY = "windlevel"
+
+HTALEVEL_KEY = "htalevel"
+
 SHAKEHORIZON_KEY = "shakehorizon"
 OSCMODE_KEY = "oscmode"
 TEMPERATURE_KEY = "temperature"
