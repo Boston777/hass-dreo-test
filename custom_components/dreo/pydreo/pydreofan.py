@@ -3,6 +3,8 @@
 import logging
 from typing import TYPE_CHECKING, Dict
 
+from custom_components.dreo.pydreo.constant import HTALEVEL_KEY
+
 from .constant import (
     LOGGER_NAME,
     POWERON_KEY,
@@ -103,8 +105,8 @@ class PyDreoFan(PyDreoBaseDevice):
                           fan_speed,
                           self._fan_definition.speed_range)
             return
-        self._send_command(WINDLEVEL_KEY, fan_speed)
-
+        # self._send_command(WINDLEVEL_KEY, fan_speed)
+        self._send_command(HTALEVEL_KEY, fan_speed)
     @property
     def preset_mode(self):
         """Return the current preset mode."""
@@ -354,7 +356,8 @@ class PyDreoFan(PyDreoBaseDevice):
         _LOGGER.debug("PyDreoFan:update_state")
         super().update_state(state)
 
-        self._fan_speed = self.get_state_update_value(state, WINDLEVEL_KEY)
+        # self._fan_speed = self.get_state_update_value(state, WINDLEVEL_KEY)
+        self._fan_speed = self.get_state_update_value(state, HTALEVEL_KEY)
         if self._fan_speed is None:
             _LOGGER.error("Unable to get fan speed from state. Check debug logs for more information.")
 
@@ -380,7 +383,8 @@ class PyDreoFan(PyDreoBaseDevice):
         if isinstance(val_power_on, bool):
             self._is_on = val_power_on
 
-        val_wind_level = self.get_server_update_key_value(message, WINDLEVEL_KEY)
+        # val_wind_level = self.get_server_update_key_value(message, WINDLEVEL_KEY)
+        val_wind_level = self.get_server_update_key_value(message, HTALEVEL_KEY)
         if isinstance(val_wind_level, int):
             self._fan_speed = val_wind_level
 
