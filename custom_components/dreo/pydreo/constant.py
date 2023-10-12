@@ -22,7 +22,7 @@ HTALEVEL_KEY = "htalevel"
 SHAKEHORIZON_KEY = "shakehorizon"
 OSCMODE_KEY = "oscmode"
 
-OSCON_KEY = "oscon"
+#OSCON_KEY = "oscon"
 
 TEMPERATURE_KEY = "temperature"
 VOICEON_KEY = "voiceon"
@@ -73,7 +73,8 @@ HEATER_MODE_HOTAIR = "hotair"
 HEATER_MODE_ECO = "eco"
 HEATER_MODE_FAN = "fan"
 
-HORIZONTAL_OSCILLATION_KEY = "hoscon"
+#HORIZONTAL_OSCILLATION_KEY = "hoscon"
+HORIZONTAL_OSCILLATION_KEY = "oscon"
 HORIZONTAL_OSCILLATION_ANGLE_KEY = "hoscangle"
 
 VERTICAL_OSCILLATION_KEY = "voscon"
