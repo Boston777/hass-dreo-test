@@ -21,6 +21,9 @@ HTALEVEL_KEY = "htalevel"
 
 SHAKEHORIZON_KEY = "shakehorizon"
 OSCMODE_KEY = "oscmode"
+
+OSCON_KEY = "oscon"
+
 TEMPERATURE_KEY = "temperature"
 VOICEON_KEY = "voiceon"
 LEDALWAYSON_KEY = "ledalwayson"

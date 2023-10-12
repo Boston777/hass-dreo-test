@@ -20,6 +20,9 @@ from .constant import (
     VERTICAL_OSCILLATION_KEY,
     VERTICAL_OSCILLATION_ANGLE_KEY,
     OSCMODE_KEY,
+    
+    OSCON_KEY,
+
     LIGHTSENSORON_KEY,
     MUTEON_KEY,
     FIXEDCONF_KEY,
@@ -214,7 +217,8 @@ class PyDreoFan(PyDreoBaseDevice):
                 osc_computed = self._osc_mode | OscillationMode.HORIZONTAL
             else:
                 osc_computed = self._osc_mode & ~OscillationMode.HORIZONTAL
-            self._send_command(OSCMODE_KEY, osc_computed)
+            # self._send_command(OSCMODE_KEY, osc_computed)
+            self._send_command(OSCON_KEY, osc_computed)
         else:
             _LOGGER.error("Horizontal oscillation is not supported.")
             return
@@ -241,7 +245,8 @@ class PyDreoFan(PyDreoBaseDevice):
                 osc_computed = self._osc_mode | OscillationMode.VERTICAL
             else:
                 osc_computed = self._osc_mode & ~OscillationMode.VERTICAL
-            self._send_command(OSCMODE_KEY, osc_computed)
+            # self._send_command(OSCMODE_KEY, osc_computed)
+            self._send_command(OSCON_KEY, osc_computed)
         else:
             _LOGGER.error("Vertical oscillation is not supported.")
             return
@@ -369,7 +374,8 @@ class PyDreoFan(PyDreoBaseDevice):
         self._wind_mode = self.get_state_update_value(state, WIND_MODE_KEY)
         self._horizontally_oscillating = self.get_state_update_value(state, HORIZONTAL_OSCILLATION_KEY)
         self._vertically_oscillating = self.get_state_update_value(state, VERTICAL_OSCILLATION_KEY)
-        self._osc_mode = self.get_state_update_value(state, OSCMODE_KEY)
+        #self._osc_mode = self.get_state_update_value(state, OSCMODE_KEY)
+        self._osc_mode = self.get_state_update_value(state, OSCON_KEY)
         self._light_sensor_on = self.get_state_update_value(state, LIGHTSENSORON_KEY)
         self._mute_on = self.get_state_update_value(state, MUTEON_KEY)
         self._fixed_conf = self.get_state_update_value(state, FIXEDCONF_KEY)
@@ -420,7 +426,8 @@ class PyDreoFan(PyDreoBaseDevice):
         if isinstance(val_vert_oscillation, bool):
             self._vertically_oscillating = val_vert_oscillation
 
-        val_osc_mode = self.get_server_update_key_value(message, OSCMODE_KEY)
+        # val_osc_mode = self.get_server_update_key_value(message, OSCMODE_KEY)
+        val_osc_mode = self.get_server_update_key_value(message, OSCON_KEY)
         if isinstance(val_osc_mode, int):
             self._osc_mode = val_osc_mode
 
