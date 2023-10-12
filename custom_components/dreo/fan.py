@@ -92,12 +92,8 @@ class DreoFanHA(DreoBaseDeviceHA, FanEntity):
         supported_features = FanEntityFeature.SET_SPEED
         if (self.device.preset_mode is not None):
             supported_features = supported_features | FanEntityFeature.PRESET_MODE
-            else:
-            _LOGGER.error("DEVICE PRESET ERRORRRR")
         if (self.device.oscillating is not None):
             supported_features = supported_features | FanEntityFeature.OSCILLATE
-            else:
-            _LOGGER.error("DEVICE OSCILLATING ERRORRRR")
 
         return supported_features
 
