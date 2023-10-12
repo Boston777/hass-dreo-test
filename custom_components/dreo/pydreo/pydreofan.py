@@ -121,10 +121,10 @@ class PyDreoFan(PyDreoBaseDevice):
             return None
         
         # If we can't match the preset mode, just return the first one.
-       # if mode > len(self.preset_modes):
-       #     return self.preset_modes[0]
+        if mode > len(self.preset_modes):
+            return self.preset_modes[0]
         
-       # return self.preset_modes[mode - 1]
+        return self.preset_modes[mode - 1]
 
     @preset_mode.setter
     def preset_mode(self, value: str) -> None:
